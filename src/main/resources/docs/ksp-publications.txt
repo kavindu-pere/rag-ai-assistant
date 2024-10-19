@@ -1,0 +1,10 @@
+KSP Publications
+
+KSP Publications is a publications house in Sri Lanka. They publish books, magazines, and other publications. They also provide printing services for authors and publishers. KSP Publications is known for its high-quality printing and publishing services.
+
+The following paragraph mentions how to create a paid order at KSP Publications.
+
+To create a paid order, the user or the author need to goto "ABC" view, and click on "Some TAB".
+Then the author should click on "the STEP A" and click next to go to "the STEP B".
+After filling "the BLANK form", the author is directed to the "the ORDER CONFIRMAT view".
+Click "it is OKAY" to exit the order creation flow.

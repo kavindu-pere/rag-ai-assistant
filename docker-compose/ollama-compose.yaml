@@ -1,0 +1,38 @@
+services:
+  ollama:
+    image: 'ollama/ollama:latest'
+    container_name: 'ollama'
+    ports:
+      - '11434:11434'
+    volumes:
+      - 'ollama_data:/root/.ollama'
+
+  prepare-models:
+    image: 'ollama/ollama:latest'
+    depends_on:
+      - 'ollama'
+    volumes:
+      - 'ollama_data:/root/.ollama'
+    environment:
+      - 'OLLAMA_HOST=http://ollama:11434'
+    entrypoint: >
+      sh -c "
+      echo 'Waiting for Ollama server to start...' &&
+      sleep 10 &&
+      echo 'Pulling tinydolphin...' &&
+      ollama pull tinydolphin &&
+      echo 'Pulling tinyllama...' &&
+      ollama pull tinyllama &&
+      echo 'Pulling llama3.1...' &&
+      ollama pull llama3.1 &&
+      echo 'Pulling embedding model...' &&
+      ollama pull mxbai-embed-large &&
+      echo 'Pulling embedding model...' &&
+      ollama pull nomic-embed-text &&
+      cho 'Model preparation complete.'"
+
+volumes:
+  ollama_data:
+
+networks:
+  app-network:
